@@ -1,0 +1,24 @@
+# https://taskfile.org
+
+version: '2'
+
+vars:
+  EXE: App
+
+tasks:
+  build:
+    cmds:
+      - go build -o {{.EXE}} 
+
+  run:
+    cmds:
+      - ./{{.EXE}} 
+    silent: true
+
+  test:
+    cmds:
+      - go test ./...
+
+  clean:
+    cmds:
+      - rm {{.EXE}} 
